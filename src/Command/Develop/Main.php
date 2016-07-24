@@ -17,6 +17,9 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class Main extends Command
 {
+    /**
+     * Configure the commands arguments and options
+     */
     protected function configure()
     {
         $this
@@ -72,7 +75,7 @@ class Main extends Command
                 'opt4',
                 'o4',
                 InputOption::VALUE_IS_ARRAY + InputOption::VALUE_OPTIONAL,
-                'Option is defined as IS_ARRAY',
+                'Option is defined as IS_ARRAY + VALUE_OPTIONAL',
                 null
             )
 
