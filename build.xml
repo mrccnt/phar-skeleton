@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<project name="Phar-Skeleton" basedir="." default="build">
+
+    <target name="build">
+
+        <property name="dir.temp.build" value="dist/temp"/>
+
+        <!-- Recreate a local output directory -->
+        <delete dir="dist"/>
+        <mkdir dir="dist"/>
+        <mkdir dir="${dir.temp.build}"/>
+
+        <!-- Copy relevant resources to build directory -->
+        <copy todir="${dir.temp.build}"  includeemptydirs="true">
+            <fileset dir=".">
+                <include name="src/**/*" />
+            </fileset>
+        </copy>
+        <copy file="composer.json" todir="${dir.temp.build}"/>
+        <copy file="console" todir="${dir.temp.build}"/>
+        <copy file="LICENSE" todir="${dir.temp.build}"/>
+
+        <!-- Download most recent composer binary -->
+        <!--suppress PhingDomInspection -->
+        <httpget url="http://getcomposer.org/composer.phar" dir="${dir.temp.build}"/>
+
+        <!-- Execute composer in build directory -->
+        <composer command="install" composer="${dir.temp.build}/composer.phar">
+            <arg value="--no-dev" />
+            <arg value="--optimize-autoloader" />
+            <arg value="--working-dir" />
+            <arg value="${dir.temp.build}" />
+        </composer>
+
+        <!-- Create the phar package -->
+        <!--suppress PhingDomInspection -->
+        <pharpackage destfile="${project.basedir}/dist/console.phar"
+                     basedir="${dir.temp.build}"
+                     clistub="${dir.temp.build}/console"
+                     compression="gzip"
+                     signature="sha512">
+
+            <!-- Include all files we need -->
+            <fileset dir="${dir.temp.build}">
+                <include name="src/**" />
+                <include name="vendor/**" />
+                <include name="LICENSE" />
+                <include name="console" />
+            </fileset>
+
+            <!-- Add some metadata -->
+            <metadata>
+                <element name="version" value="0.1.0" />
+                <element name="authors">
+                    <element name="Marco Conti">
+                        <element name="e-mail" value="marcoconti2010@gmail.com"/>
+                    </element>
+                </element>
+            </metadata>
+
+        </pharpackage>
+
+        <!-- Do a little cleanup -->
+        <delete dir="${dir.temp.build}"/>
+
+    </target>
+
+</project>

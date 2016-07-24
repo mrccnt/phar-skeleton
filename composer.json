@@ -1,0 +1,33 @@
+{
+    "name": "mrccnt/phar-skeleton",
+    "description": "Skeleton for creating a PHAR application using symfony console.",
+    "version": "0.1.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marco Conti",
+            "email": "phar-skeleton@marcoconti.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "PharSkel\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^5.5 || ^7.0",
+        "ext-phar": "*",
+        "symfony/console": "^3.0"
+    },
+    "require-dev": {
+        "phing/phing": "^2.14",
+        "squizlabs/php_codesniffer": "^2.6",
+        "phpmd/phpmd": "^2.4",
+        "composer/composer": "^1.2",
+        "pear/HTTP_Request2": "^2.3"
+    },
+    "scripts": {
+        "pre-install-cmd": "PharSkel\\Composer\\Installer::preInstall",
+        "pre-update-cmd": "PharSkel\\Composer\\Installer::preUpdate"
+    }
+}
