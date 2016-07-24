@@ -19,7 +19,8 @@ class Installer
      * @param Event $event
      * @return bool
      */
-    public static function preInstall(Event $event) {
+    public static function preInstall(Event $event)
+    {
         return self::checkIniSetting($event);
     }
 
@@ -27,7 +28,8 @@ class Installer
      * @param Event $event
      * @return bool
      */
-    public static function preUpdate(Event $event) {
+    public static function preUpdate(Event $event)
+    {
         return self::checkIniSetting($event);
     }
 
@@ -39,9 +41,9 @@ class Installer
     {
         $value = ini_get('phar.readonly');
         if ($value==self::OPTION_ON || intval($value)==self::OPTION_ONE) {
-            $io = $event->getIO();
-            $io->write('');
-            $io->writeError(self::ERR);
+            $console = $event->getIO();
+            $console->write('');
+            $console->writeError(self::ERR);
             exit;
         }
         return true;

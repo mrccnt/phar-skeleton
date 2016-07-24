@@ -87,6 +87,7 @@ class Main extends Command
      * @param InputInterface $input
      * @param OutputInterface $output
      * @return null|int
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -94,11 +95,8 @@ class Main extends Command
         print_r($input->getOptions());
 
         try {
-
             // TODO: Process your command
-
             return 0;
-
         } catch (\Exception $e) {
             return $e->getCode();
         }
