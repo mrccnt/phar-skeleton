@@ -1,5 +1,7 @@
 # Phar-Skeleton
 
+[![Build Status](https://phpci.marcoconti.org/build-status/image/1)](https://github.com/mrccnt/phar-skeleton)
+
 Skeleton for creating a PHAR application using symfony console. 
 
 ## Requirements
