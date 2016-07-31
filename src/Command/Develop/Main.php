@@ -27,9 +27,9 @@ class Main extends Command
             ->setDescription('Development command')
 
             ->addArgument(
-                'arg1',                             // name
-                InputArgument::REQUIRED,            // mode = null
-                'Argument is defined as REQUIRED',  // description = ''
+                'arg1', // name
+                InputArgument::REQUIRED, // mode = null
+                'Argument is defined as REQUIRED', // description = ''
                 null                                // default = null
             )
 
@@ -48,10 +48,10 @@ class Main extends Command
             )
 
             ->addOption(
-                'opt1',                             // name
-                'o1',                               // shortcut
-                InputOption::VALUE_REQUIRED,        // mode = null
-                'Option is defined as REQUIRED',    // description = ''
+                'opt1', // name
+                'o1', // shortcut
+                InputOption::VALUE_REQUIRED, // mode = null
+                'Option is defined as REQUIRED', // description = ''
                 null                                // default = null
             )
 
