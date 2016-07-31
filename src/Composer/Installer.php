@@ -17,7 +17,7 @@ class Installer
 
     /**
      * @param Event $event
-     * @return bool
+     * @return null|boolean
      */
     public static function preInstall(Event $event)
     {
@@ -26,7 +26,7 @@ class Installer
 
     /**
      * @param Event $event
-     * @return bool
+     * @return null|boolean
      */
     public static function preUpdate(Event $event)
     {
@@ -35,7 +35,7 @@ class Installer
 
     /**
      * @param Event $event
-     * @return bool
+     * @return null|boolean
      */
     private static function checkIniSetting(Event $event)
     {
