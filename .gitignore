@@ -1,4 +1,5 @@
-.idea/
-dist
-vendor/
-*.phar
+/.idea
+/dist
+/vendor
+/*.log
+/*.phar

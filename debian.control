@@ -1,0 +1,10 @@
+Package: SKELETONTITLE
+Version: SKELETONVERSION
+Section: misc
+Priority: extra
+Architecture: all
+Depends:
+Installed-Size: SKELETONSIZE
+Maintainer: Marco Conti <github@marcoconti.org>
+Homepage: https://github.com/mrccnt/phar-skeleton
+Description: This is the phar-skeleton deb installer package

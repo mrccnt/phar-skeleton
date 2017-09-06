@@ -1,33 +1,41 @@
 {
     "name": "mrccnt/phar-skeleton",
-    "description": "Skeleton for creating a PHAR application using symfony console.",
-    "version": "0.1.0",
-    "license": "MIT",
+    "description": "Phar skeleton application template",
+    "homepage": "https://github.com/mrccnt/phar-skeleton",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Marco Conti",
-            "email": "phar-skeleton@marcoconti.org"
+            "email": "github@marcoconti.org"
         }
     ],
-    "autoload": {
-        "psr-4": {
-            "PharSkel\\": "src/"
-        }
-    },
     "require": {
-        "php": "^5.5 || ^7.0",
-        "ext-phar": "*",
-        "symfony/console": "^3.0"
+        "php": ">=7.0.0",
+        "ext-phar": "*"
     },
     "require-dev": {
-        "phing/phing": "^2.14",
-        "squizlabs/php_codesniffer": "^2.6",
-        "phpmd/phpmd": "^2.4",
-        "composer/composer": "^1.2",
-        "pear/HTTP_Request2": "^2.3"
+        "ext-phar": "*",
+        "squizlabs/php_codesniffer": "^2.8",
+        "sebastian/phpcpd": "^2.0",
+        "phpmd/phpmd": "^2.6",
+        "phing/phing": "^2.16",
+        "pear/http_request2": "^2.3",
+        "pdepend/pdepend": "^2.5",
+        "composer/composer": "^1.5",
+        "phpunit/phpunit": "^6.3"
     },
+    "autoload": {
+        "psr-4": {
+            "Skeleton\\": "src/"
+        }
+    },
+    "bin": [
+        "bin/phar-skeleton"
+    ],
     "scripts": {
-        "pre-install-cmd": "PharSkel\\Composer\\Installer::preInstall",
-        "pre-update-cmd": "PharSkel\\Composer\\Installer::preUpdate"
+        "pre-install-cmd": "Skeleton\\Composer\\Helper::checkPharReadonly",
+        "pre-update-cmd": "Skeleton\\Composer\\Helper::checkPharReadonly",
+        "build": "vendor/bin/phing full",
+        "report": "vendor/bin/phing report"
     }
 }

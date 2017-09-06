@@ -1,8 +1,0 @@
-#!/usr/bin/env php
-<?php
-
-define('BASE_DIR', __DIR__);
-
-require 'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
-
-\PharSkel\Application::run();
